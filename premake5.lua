@@ -82,5 +82,5 @@ project (path.getbasename(os.getcwd()))
     files {"**.hpp", "**.h", "**.cpp","**.c"}
 	removefiles 
 	{ 
-		"./sfotool/**"
+		"./ringtones/**"
     }
