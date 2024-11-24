@@ -58,14 +58,12 @@ workspace (path.getbasename(os.getcwd()))
 
 		filter "system:windows"
 			defines{"_WIN32"}
-			links {"winmm", "gdi32"}
 			libdirs {"../bin/%{cfg.buildcfg}"}
 
 		filter "system:linux"
-			links {"pthread", "m", "dl", "rt"}
 
 		filter "system:macosx"
-            links {"Cocoa.framework", "IOKit.framework", "CoreFoundation.framework", "CoreAudio.framework", "CoreVideo.framework", "AudioToolbox.framework"}
+            links {"CoreAudio.framework"}
 
 		
 

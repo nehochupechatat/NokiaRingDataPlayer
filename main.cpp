@@ -18,7 +18,7 @@ void main_loop__em()
 
 #define DEVICE_FORMAT       ma_format_f32
 #define DEVICE_CHANNELS     1
-#define DEVICE_SAMPLE_RATE  96000
+#define DEVICE_SAMPLE_RATE  192000
 
 ma_pulsewave squareWave;
 
@@ -51,6 +51,17 @@ void PlayToneSequence(std::vector<ToneData> seq)
 	TONE(0,0);
 }
 
+void PlayMultipleTones(std::vector<std::vector<ToneData>> ringtones)
+{
+	for (unsigned short i = 0; i < ringtones.size(); i++)
+	{
+		printf("Playing monophonic ringtone No.%d ...\n",i);
+		PlayToneSequence(ringtones[i]);
+		printf("Ringtone %d has finished playing!\n", i);
+		SongDelay(500);
+		
+	}
+}
 void AudioCallback(ma_device* pDevice, void* pOutput, const void* pInput, ma_uint32 frameCount)
 {
     ma_pulsewave* pSineWave;
@@ -99,8 +110,6 @@ int main(int argc, char** argv)
         return -4;
     }
 
-    printf("Playing monophonic ringtone...\n");
-
     squareWaveConfig =  ma_pulsewave_config_init(device.playback.format, device.playback.channels, device.sampleRate, (double)42/1024, 0.2, 0);
     ma_pulsewave_init(&squareWaveConfig, &squareWave);
     if (ma_device_start(&device) != MA_SUCCESS) {
@@ -108,7 +117,7 @@ int main(int argc, char** argv)
         ma_device_uninit(&device);
         return -5;
     }
-	PlayToneSequence(ringtones[2]);
+	PlayMultipleTones(ringtones);
     ma_device_uninit(&device);
     
     (void)argc;
