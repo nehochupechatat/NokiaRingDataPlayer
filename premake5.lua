@@ -80,7 +80,3 @@ project (path.getbasename(os.getcwd()))
         ["Source Files/*"] = { "src/**.cpp", "src/**.c", "**.cpp","**.c"},
     }
     files {"**.hpp", "**.h", "**.cpp","**.c"}
-	removefiles 
-	{ 
-		"./ringtones/**"
-    }

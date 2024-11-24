@@ -4,8 +4,8 @@
 #define MINIAUDIO_IMPLEMENTATION
 #include "miniaudio.h"
 #include "ringdataplayer.h"
-#include "jamsession.h"
-
+#include "tonedata.h"
+#include "tonelist.h"
 #include <stdio.h>
 
 #ifdef __EMSCRIPTEN__
@@ -108,7 +108,7 @@ int main(int argc, char** argv)
         ma_device_uninit(&device);
         return -5;
     }
-	PlayToneSequence(ring_undefined_seq);
+	PlayToneSequence(ringtones[2]);
     ma_device_uninit(&device);
     
     (void)argc;

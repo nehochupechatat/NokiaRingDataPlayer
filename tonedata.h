@@ -53,6 +53,8 @@ const double AUD_TONE_RING_FREQ_B4 = B * 8;
 const double AUD_TONE_RING_FREQ_H4 = G * 8;
 const double AUD_TONE_RING_FREQ_C4 = C * 8;
 const double AUD_TONE_FREQ_OFF = 0;
+const double AUD_TONE_RING_FREQ_UNK = 0;
+
 typedef struct {
     double frequency; // Tone frequency
     int duration;     // Duration in milliseconds
